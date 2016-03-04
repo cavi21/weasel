@@ -1,5 +1,7 @@
 require 'active_record'
+require 'active_support/concern'
 
+require 'weasel/concerns/auditable'
 require 'weasel/models/event'
 require 'weasel/version'
 
@@ -19,6 +21,11 @@ module Weasel
   def self.configure
     yield config
 
+    # Connect to current AR connection.
     ActiveRecord::Base.establish_connection(config.db_configuration)
+
+    # Extend ActionController with the `audit_with_weasel` method.
+    ActionController::Base.extend(Weasel)
+    ActionController::Base.send(:include, Weasel::Auditable)
   end
 end

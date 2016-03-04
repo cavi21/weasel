@@ -42,7 +42,13 @@ class AddWeaselTables < ActiveRecord::Migration
 end
 ```
 
-Then, go outside and live a little.
+Then, create an initializer to configure Weasel. Put this in it:
+
+```ruby
+Weasel.configure do |config|
+  config.db_configuration = ActiveRecord::Base.connection_config
+end
+```
 
 ## Development
 
