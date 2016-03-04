@@ -22,7 +22,27 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+First, you'll need to create a table like this:
+
+```ruby
+class AddWeaselTables < ActiveRecord::Migration
+  def self.up
+    create_table :weasel_events do |t|
+      t.integer :actor_id
+      t.string  :actor_type
+      t.text    :action_data
+
+      t.timestamps
+    end
+
+    def self.down
+      drop_table :weasel_events
+    end
+  end
+end
+```
+
+Then, go outside and live a little.
 
 ## Development
 
@@ -32,10 +52,9 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/weasel. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](contributor-covenant.org) code of conduct.
+Bug reports and pull requests are welcome on GitHub at https://github.com/goodpeople/weasel. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](contributor-covenant.org) code of conduct.
 
 
 ## License
 
 The gem is available as open source under the terms of the [MIT License](http://opensource.org/licenses/MIT).
-
