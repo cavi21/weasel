@@ -3,6 +3,7 @@ require 'active_support/concern'
 
 require 'weasel/concerns/auditable'
 require 'weasel/models/event'
+require 'weasel/workers/events_worker'
 require 'weasel/version'
 
 module Weasel
