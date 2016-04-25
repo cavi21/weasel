@@ -7,7 +7,9 @@ module Weasel
     def audit
       yield
 
-      Weasel::EventsWorker.perform_async(current_user.id, thin_request)
+      user = current_user || current_admin
+
+      Weasel::EventsWorker.perform_async(user.id, thin_request)
     end
 
     private
