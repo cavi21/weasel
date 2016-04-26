@@ -7,12 +7,20 @@ module Weasel
     def audit
       yield
 
-      user = current_user || current_admin
+      return unless user.present?
 
       Weasel::EventsWorker.perform_async(user.id, thin_request)
     end
 
     private
+
+    def user
+      if defined?(current_user)
+        current_user
+      elsif defined?(current_admin)
+        current_admin
+      end
+    end
 
     def thin_request
       parameters = request.params
