@@ -7,22 +7,19 @@ module Weasel
     def audit
       yield
 
-      return unless user.present?
+      return unless actor.present?
 
-      Weasel::EventsWorker.perform_async(user.id, thin_request)
+      Weasel::EventsWorker.perform_async(actor.class.name, actor.id, request_data)
     end
 
     private
 
-    def user
-      if defined?(current_user)
-        current_user
-      elsif defined?(current_admin)
-        current_admin
-      end
+    def actor
+      return current_user if defined?(current_user)
+      return current_admin if defined?(current_admin)
     end
 
-    def thin_request
+    def request_data
       parameters = request.params
 
       rails_action = "#{parameters[:controller]}:#{parameters[:action]}"
