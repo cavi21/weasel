@@ -5,11 +5,13 @@ module Weasel
 
   module Auditable
     def audit
-      yield
+      begin
+        yield
+      ensure
+        return unless actor.present?
 
-      return unless actor.present?
-
-      Weasel::EventsWorker.perform_async(actor.class.name, actor.id, request_data)
+        Weasel::EventsWorker.perform_async(actor.class.name, actor.id, request_data)
+      end
     end
 
     private
