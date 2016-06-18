@@ -1,4 +1,4 @@
-# Weasel
+# Weasel [![codebeat badge](https://codebeat.co/badges/821be2af-ef63-4921-ad43-d76e780e5e63)](https://codebeat.co/projects/github-com-goodpeople-weasel)
 
 Like [Jimmy Fratianno](https://en.wikipedia.org/wiki/Jimmy_Fratianno), this gem got the nickname "Weasel", from a witness who saw him outrun police. Telling all about **who** is doing **what** from **where** and **when**
 
