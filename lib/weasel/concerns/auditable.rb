@@ -22,7 +22,11 @@ module Weasel
     end
 
     def request_data
-      parameters = request.params
+      parameters = if request.respond_to?(:filtered_parameters)
+        request.filtered_parameters
+      else
+        request.params
+      end
 
       rails_action = "#{parameters[:controller]}:#{parameters[:action]}"
       rails_parameters = parameters.except(:controller, :action)
