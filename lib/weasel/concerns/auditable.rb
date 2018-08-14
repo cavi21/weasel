@@ -42,9 +42,7 @@ module Weasel
         }.tap do |hash|
           hash[:body] = response.body if response.body
         end
-      }.tap do |hash|
-        hash[:flash] = request.flash if request.flash
-      end
+      }
     end
 
     def geo_ip_information
