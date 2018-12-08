@@ -11,7 +11,7 @@ Gem::Specification.new do |spec|
 
   spec.summary       = %q{Simple Audit gem}
   spec.description   = %q{Works as a weasel for your controllers}
-  spec.homepage      = 'https://github.com/goodpeople/weasel'
+  spec.homepage      = 'https://github.com/cavi21/weasel'
   spec.license       = 'MIT'
 
   spec.files         = `git ls-files -z`.split("\x0").reject { |f| f.match(%r{^(test|spec|features)/}) }
