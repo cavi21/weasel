@@ -1,6 +1,6 @@
 module Weasel
   def audit_with_weasel(*args)
-    around_filter :audit, only: args
+    around_action :audit, only: args
   end
 
   module Auditable
@@ -36,12 +36,7 @@ module Weasel
         params: rails_parameters,
         remote_ip: request.remote_ip,
         geo_ip_information: geo_ip_information,
-        user_agent: request.user_agent,
-        response: {
-          status: response.status
-        }.tap do |hash|
-          hash[:body] = response.body if response.body
-        end
+        user_agent: request.user_agent
       }
     end
 
