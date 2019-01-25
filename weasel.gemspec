@@ -21,6 +21,7 @@ Gem::Specification.new do |spec|
 
   spec.add_dependency 'activerecord', '>= 5', '< 6'
   spec.add_dependency 'sidekiq', '>= 2'
+  spec.add_dependency 'maxmind-db', '~> 1.0'
 
   spec.add_development_dependency 'bundler', '~> 1.10'
   spec.add_development_dependency 'pry'
