@@ -41,14 +41,13 @@ module Weasel
     end
 
     def geo_ip_information
-      info = geo_service.get(request.remote_ip)
-      geo_service.close
+      info = geo_service.lookup(request.remote_ip)
 
-      info.nil? ? {} : info
+      info.to_hash
     end
 
     def geo_service
-      @@maxmind ||= MaxMind::DB.new( Rails.root.join('tmp', 'GeoLite2-Country.mmdb'), mode: MaxMind::DB::MODE_MEMORY)
+      @@maxmind ||= ::MaxMindDB.new( Rails.root.join('tmp', 'GeoLite2-City.mmdb'))
     end
   end
 end

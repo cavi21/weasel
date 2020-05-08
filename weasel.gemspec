@@ -20,10 +20,9 @@ Gem::Specification.new do |spec|
   spec.require_paths = ['lib']
 
   spec.add_dependency 'activerecord', '>= 5', '< 6'
-  spec.add_dependency 'sidekiq', '>= 2'
-  spec.add_dependency 'maxmind-db', '~> 1.0'
+  spec.add_dependency 'sidekiq', '>= 2', '< 6'
+  spec.add_dependency 'maxminddb', '~> 0.1'
 
-  spec.add_development_dependency 'bundler', '~> 1.10'
   spec.add_development_dependency 'pry'
   spec.add_development_dependency 'pry-nav'
   spec.add_development_dependency 'rake', '~> 10.0'
