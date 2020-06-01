@@ -20,7 +20,7 @@ Gem::Specification.new do |spec|
   spec.require_paths = ['lib']
 
   spec.add_dependency 'activerecord', '>= 5', '< 6'
-  spec.add_dependency 'sidekiq', '>= 2', '< 6'
+  spec.add_dependency 'sidekiq', '>= 2', '< 7'
   spec.add_dependency 'maxminddb', '~> 0.1'
 
   spec.add_development_dependency 'pry'
